@@ -5,17 +5,39 @@ namespace java com.inmobi.thriftself.thrift.models
 namespace py thriftself_thrift_models
 
 service THeartbeatService {
+
     /**
-    * Get All Countries
+    * Get List Of Propositions
+    **/
+    list<entities.TPropositionMeta> getListOfProposition() throws(1:exceptions.TInternalServerException ise),
+    /**
+    * Get List of EventType
+    **/
+
+    list<entities.TEventTypeMeta> getListOfEventType() throws(1:exceptions.TInternalServerException ise),
+
+    /**
+    * Get List Of Channels
+    **/
+
+    list<entities.TChannelMeta> getListOfChannel() throws(1: exceptions.TInternalServerException ise),
+
+    /**
+    * Get List Of Countries
     **/
     list<entities.TCountryMeta> getListOfCountry() throws(1: exceptions.TInternalServerException ise),
 
 
     /**
-    * Get All Operating Systems
+    * Get List of Operating Systems
     **/
     list<entities.TOSMeta> getListOfOS() throws(1: exceptions.TInternalServerException ise),
 
+    /**
+    * Get Advertiser for a given advertiserId
+    **/
+
+    entities.TAdvertiser getAdvertiserByAdvertiserId(1: required i32 advertiserId) throws(1:exceptions.TInternalServerException ise),
 
     /**
     * Get available/rerun reports from campaign_daily_reports

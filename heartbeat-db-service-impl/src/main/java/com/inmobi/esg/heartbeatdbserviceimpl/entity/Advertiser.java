@@ -19,7 +19,7 @@ public class Advertiser {
 
     @Id
     @Column(name = "advertiser_id")
-    private int id;
+    private int advertiserId;
 
     @Column(name = "account_id", columnDefinition = "character varying(255)")
     private String accountId;
@@ -30,13 +30,25 @@ public class Advertiser {
     @Column(name = "account_mail_id", columnDefinition = "character varying(255)")
     private String emailId;
 
+    @Column(name = "roo")
+    private String roo;
+
+    @Column(name = "sub_roo")
+    private String subRoo;
+
+    @Column(name = "pod")
+    private String pod;
+
+    @Column(name = "sub_pod")
+    private String subPod;
+
     @CreationTimestamp
     @Column(name = "created_at", columnDefinition = "TIMESTAMP WITHOUT TIME ZONE DEFAULT now() NOT NULL")
     private Date createdOn;
 
-    @Column(name = "deprecated_at", columnDefinition = "TIMESTAMP WITHOUT TIME ZONE DEFAULT now() NOT NULL")
-    private Date deprecatedOn;
+    @Column(name = "modified_at", columnDefinition = "TIMESTAMP WITHOUT TIME ZONE DEFAULT now() NOT NULL")
+    private Date modifiedOn;
 
-    @Column(name = "is_active")
-    private boolean active;
+    @Column(name = "modified_by")
+    private String modifiedBy;
 }

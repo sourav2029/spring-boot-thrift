@@ -8,21 +8,21 @@ import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.transport.THttpClient;
 import org.apache.thrift.transport.TTransportException;
 
-import com.inmobi.esg.heartbeatdbservice.thrift.TCalculatorService;
-import com.inmobi.esg.heartbeatdbservice.thrift.TDivisionByZeroException;
 import com.inmobi.esg.heartbeatdbservice.thrift.TInternalServerException;
-import com.inmobi.esg.heartbeatdbservice.thrift.TOperation;
+import com.inmobi.esg.heartbeatservice.entities.TAdvertiser;
 import com.inmobi.esg.heartbeatservice.entities.TCampaignReportsForBilling;
 import com.inmobi.esg.heartbeatservice.entities.TCampaignTransactions;
+import com.inmobi.esg.heartbeatservice.entities.TChannelMeta;
 import com.inmobi.esg.heartbeatservice.entities.TCountryMeta;
+import com.inmobi.esg.heartbeatservice.entities.TEventTypeMeta;
 import com.inmobi.esg.heartbeatservice.entities.TOSMeta;
+import com.inmobi.esg.heartbeatservice.entities.TPropositionMeta;
 import com.inmobi.esg.heartbeatservice.entities.TRateCardAndIoForCampaign;
 import com.inmobi.esg.heartbeatservice.entities.TReportStatus;
 import com.inmobi.thriftself.thrift.models.THeartbeatService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import sun.misc.Contended;
 
 
 @RequiredArgsConstructor
@@ -66,6 +66,45 @@ public class HeartbeatServiceClient implements THeartbeatService.Iface {
 
 
     @Override
+    public List<TPropositionMeta> getListOfProposition() throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+
+        try {
+            client = getClient();
+            return client.getListOfProposition();
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public List<TEventTypeMeta> getListOfEventType() throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+
+        try {
+            client = getClient();
+            return client.getListOfEventType();
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public List<TChannelMeta> getListOfChannel() throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+
+        try {
+            client = getClient();
+            return client.getListOfChannel();
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
     public List<TCountryMeta> getListOfCountry() throws TInternalServerException, TException {
         THeartbeatService.Client client = null;
 
@@ -85,6 +124,19 @@ public class HeartbeatServiceClient implements THeartbeatService.Iface {
         try {
             client = getClient();
             return client.getListOfOS();
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public TAdvertiser getAdvertiserByAdvertiserId(final int advertiserId) throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+
+        try {
+            client = getClient();
+            return client.getAdvertiserByAdvertiserId(advertiserId);
         } finally {
             closeClient(client);
         }

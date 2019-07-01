@@ -9,6 +9,11 @@ enum TReportStatus {
     RERUN
 }
 
+struct TCodeNameMetaInfo {
+    1: required string code,
+    2: required string name
+}
+
 struct TCampaignReportStatus {
     1: int id,
     2: string date,
@@ -115,7 +120,6 @@ struct TAdvertiser {
     7: string pod,
     8: string subPod,
     9: string createdOn,
-    10: string createdBy,
     11: string modifiedOn,
     12: string modifiedBy
 }
@@ -178,13 +182,26 @@ struct TRateCardAndIoForCampaign {
 }
 
 struct TCountryMeta {
-    1: int countryId,
-    2: string name,
-    3: string code
+    1: required int countryId,
+    2: required TCodeNameMetaInfo meta
 }
 
 struct TOSMeta {
-    1: int osId,
-    2: string name,
-    3: string code
+    1: required int osId,
+    2: required TCodeNameMetaInfo meta
+}
+
+struct TChannelMeta {
+    1: required int channelId,
+    2: required TCodeNameMetaInfo meta
+}
+
+struct TPropositionMeta {
+    1: required int propositionId,
+    2: required TCodeNameMetaInfo meta
+}
+
+struct TEventTypeMeta {
+    1: required int eventTypeId,
+    2: required TCodeNameMetaInfo meta
 }

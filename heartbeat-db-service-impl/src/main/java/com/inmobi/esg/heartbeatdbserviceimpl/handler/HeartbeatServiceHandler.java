@@ -9,12 +9,22 @@ import org.springframework.stereotype.Component;
 
 import com.inmobi.esg.heartbeatdbservice.thrift.TInternalServerException;
 import com.inmobi.esg.heartbeatdbserviceimpl.Transformer.Transformer;
+import com.inmobi.esg.heartbeatdbserviceimpl.entity.EventTypeMeta;
+import com.inmobi.esg.heartbeatdbserviceimpl.entity.PropositionMeta;
+import com.inmobi.esg.heartbeatdbserviceimpl.repository.AdvertiserRepository;
+import com.inmobi.esg.heartbeatdbserviceimpl.repository.ChannelMetaRepository;
 import com.inmobi.esg.heartbeatdbserviceimpl.repository.CountryMetaRepository;
+import com.inmobi.esg.heartbeatdbserviceimpl.repository.EventTypeMetaRepository;
 import com.inmobi.esg.heartbeatdbserviceimpl.repository.OSMetaRepository;
+import com.inmobi.esg.heartbeatdbserviceimpl.repository.PropositionMetaRepository;
+import com.inmobi.esg.heartbeatservice.entities.TAdvertiser;
 import com.inmobi.esg.heartbeatservice.entities.TCampaignReportsForBilling;
 import com.inmobi.esg.heartbeatservice.entities.TCampaignTransactions;
+import com.inmobi.esg.heartbeatservice.entities.TChannelMeta;
 import com.inmobi.esg.heartbeatservice.entities.TCountryMeta;
+import com.inmobi.esg.heartbeatservice.entities.TEventTypeMeta;
 import com.inmobi.esg.heartbeatservice.entities.TOSMeta;
+import com.inmobi.esg.heartbeatservice.entities.TPropositionMeta;
 import com.inmobi.esg.heartbeatservice.entities.TRateCardAndIoForCampaign;
 import com.inmobi.esg.heartbeatservice.entities.TReportStatus;
 import com.inmobi.thriftself.thrift.models.THeartbeatService;
@@ -27,17 +37,47 @@ import lombok.RequiredArgsConstructor;
 public class HeartbeatServiceHandler implements THeartbeatService.Iface {
     private final OSMetaRepository osMetaRepository;
     private final CountryMetaRepository countryMetaRepository;
+    private final ChannelMetaRepository channelMetaRepository;
+    private final PropositionMetaRepository propositionMetaRepository;
+    private final EventTypeMetaRepository eventTypeMetaRepository;
+    private final AdvertiserRepository advertiserRepository;
+
+
+    @Override
+    public List<TPropositionMeta> getListOfProposition() throws TInternalServerException, TException {
+        return propositionMetaRepository.findAll().parallelStream().map(Transformer::getTPropositionMeta).collect(Collectors.toList());
+
+    }
+
+
+    @Override
+    public List<TEventTypeMeta> getListOfEventType() throws TInternalServerException, TException {
+        return eventTypeMetaRepository.findAll().parallelStream().map(Transformer::getTEventTypeMeta).collect(Collectors.toList());
+    }
+
+
+    @Override
+    public List<TChannelMeta> getListOfChannel() throws TInternalServerException, TException {
+        return channelMetaRepository.findAll().parallelStream().map(Transformer::getTChannelMeta).collect(Collectors.toList());
+
+    }
 
 
     @Override
     public List<TCountryMeta> getListOfCountry() throws TInternalServerException, TException {
-        return countryMetaRepository.findAll().stream().map(Transformer::getTCountryMeta).collect(Collectors.toList());
+        return countryMetaRepository.findAll().parallelStream().map(Transformer::getTCountryMeta).collect(Collectors.toList());
     }
 
 
     @Override
     public List<TOSMeta> getListOfOS() throws TInternalServerException, TException {
-        return osMetaRepository.findAll().stream().map(Transformer::getTOSMeta).collect(Collectors.toList());
+        return osMetaRepository.findAll().parallelStream().map(Transformer::getTOSMeta).collect(Collectors.toList());
+    }
+
+
+    @Override
+    public TAdvertiser getAdvertiserByAdvertiserId(final int advertiserId) throws TInternalServerException, TException {
+        return Transformer.getTAdvertiser(advertiserRepository.findByAdvertiserId(advertiserId));
     }
 
 
