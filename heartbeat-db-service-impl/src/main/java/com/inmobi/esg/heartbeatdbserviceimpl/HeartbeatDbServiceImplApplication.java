@@ -26,7 +26,7 @@ public class HeartbeatDbServiceImplApplication {
 
 
 	@Bean
-	public ServletRegistrationBean<TServlet> calculator(TProtocolFactory protocolFactory, HeartbeatServiceHandler handler) {
+	public ServletRegistrationBean<TServlet> heartbeat(TProtocolFactory protocolFactory, HeartbeatServiceHandler handler) {
 		TServlet servlet = new TServlet(new THeartbeatService.Processor<>(handler), protocolFactory);
 		return new ServletRegistrationBean<>(servlet, "/heartbeat/");
 	}

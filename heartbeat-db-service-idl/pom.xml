@@ -31,20 +31,6 @@
                             <goal>compile</goal>
                         </goals>
                     </execution>
-                    <!--
-                    <execution>
-                        <id>generate-thrift-nodejs</id>
-                        <phase>generate-sources</phase>
-                        <configuration>
-                            <thriftExecutable>/usr/local/bin/thrift-0.9.3</thriftExecutable>
-                            <generator>js:node</generator>
-                            <outputDirectory>${project.parent.basedir}/creative_service_node_js</outputDirectory>
-                        </configuration>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
-                    -->
                 </executions>
             </plugin>
         </plugins>
