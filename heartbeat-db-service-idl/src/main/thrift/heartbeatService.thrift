@@ -4,12 +4,47 @@ include "exceptions.thrift"
 namespace java com.inmobi.thriftself.thrift.models
 namespace py thriftself_thrift_models
 
+typedef i32 int
+
 service THeartbeatService {
 
     /**
     * Get List Of Propositions
     **/
+
+     int savePropositions(1: required list<entities.TPropositionMeta> tPropositions) throws(1:exceptions.TInternalServerException ise),
+
+    /**
+    * Get List of EventType
+    **/
+
+    int saveEventTypes(1: required list<entities.TEventTypeMeta> tEventTypes) throws(1:exceptions.TInternalServerException ise),
+
+    /**
+    * Get List Of Channels
+    **/
+
+    int saveChannels(1: required list<entities.TChannelMeta> tChannels) throws(1: exceptions.TInternalServerException ise),
+
+    /**
+    * Get List Of Countries
+    **/
+
+    int saveCountries(1: required list<entities.TCountryMeta> tCountries) throws(1: exceptions.TInternalServerException ise),
+
+
+    /**
+    * Get List of Operating Systems
+    **/
+
+    int saveOS(1: required list<entities.TOSMeta> tOSMetas) throws(1: exceptions.TInternalServerException ise),
+
+    /**
+    * Get List Of Propositions
+    **/
+
     list<entities.TPropositionMeta> getListOfProposition() throws(1:exceptions.TInternalServerException ise),
+
     /**
     * Get List of EventType
     **/

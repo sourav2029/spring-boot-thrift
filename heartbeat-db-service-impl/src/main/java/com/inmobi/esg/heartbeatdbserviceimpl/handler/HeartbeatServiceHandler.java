@@ -44,28 +44,67 @@ public class HeartbeatServiceHandler implements THeartbeatService.Iface {
 
 
     @Override
+    public int savePropositions(final List<TPropositionMeta> tPropositions)
+            throws TInternalServerException, TException {
+        return propositionMetaRepository.saveAll(
+                tPropositions.parallelStream().map(Transformer::getPropositionMeta).collect(Collectors.toList())).size();
+    }
+
+
+    @Override
+    public int saveEventTypes(final List<TEventTypeMeta> tEventTypes) throws TInternalServerException, TException {
+        return eventTypeMetaRepository.saveAll(
+                tEventTypes.parallelStream().map(Transformer::getEventTypeMeta).collect(Collectors.toList())).size();
+    }
+
+
+    @Override
+    public int saveChannels(final List<TChannelMeta> tChannels) throws TInternalServerException, TException {
+        return channelMetaRepository.saveAll(
+                tChannels.parallelStream().map(Transformer::getChannelMeta).collect(Collectors.toList())).size();
+    }
+
+
+    @Override
+    public int saveCountries(final List<TCountryMeta> tCountries) throws TInternalServerException, TException {
+        return countryMetaRepository.saveAll(tCountries.parallelStream().map(Transformer::getCountryMeta).collect(
+                Collectors.toList())).size();
+    }
+
+
+    @Override
+    public int saveOS(final List<TOSMeta> tOSMetas) throws TInternalServerException, TException {
+        return osMetaRepository.saveAll(tOSMetas.parallelStream().map(Transformer::getOSMeta).collect(Collectors.toList())).size();
+    }
+
+
+    @Override
     public List<TPropositionMeta> getListOfProposition() throws TInternalServerException, TException {
-        return propositionMetaRepository.findAll().parallelStream().map(Transformer::getTPropositionMeta).collect(Collectors.toList());
+        return propositionMetaRepository.findAll().parallelStream().map(Transformer::getTPropositionMeta).collect(
+                Collectors.toList());
 
     }
 
 
     @Override
     public List<TEventTypeMeta> getListOfEventType() throws TInternalServerException, TException {
-        return eventTypeMetaRepository.findAll().parallelStream().map(Transformer::getTEventTypeMeta).collect(Collectors.toList());
+        return eventTypeMetaRepository.findAll().parallelStream().map(Transformer::getTEventTypeMeta).collect(
+                Collectors.toList());
     }
 
 
     @Override
     public List<TChannelMeta> getListOfChannel() throws TInternalServerException, TException {
-        return channelMetaRepository.findAll().parallelStream().map(Transformer::getTChannelMeta).collect(Collectors.toList());
+        return channelMetaRepository.findAll().parallelStream().map(Transformer::getTChannelMeta).collect(
+                Collectors.toList());
 
     }
 
 
     @Override
     public List<TCountryMeta> getListOfCountry() throws TInternalServerException, TException {
-        return countryMetaRepository.findAll().parallelStream().map(Transformer::getTCountryMeta).collect(Collectors.toList());
+        return countryMetaRepository.findAll().parallelStream().map(Transformer::getTCountryMeta).collect(
+                Collectors.toList());
     }
 
 

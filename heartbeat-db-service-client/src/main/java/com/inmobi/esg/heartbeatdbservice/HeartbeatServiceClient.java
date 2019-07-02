@@ -66,6 +66,75 @@ public class HeartbeatServiceClient implements THeartbeatService.Iface {
 
 
     @Override
+    public int savePropositions(final List<TPropositionMeta> tPropositions)
+            throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+
+        try {
+            client = getClient();
+            return client.savePropositions(tPropositions);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public int saveEventTypes(final List<TEventTypeMeta> tEventTypes)
+            throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+
+        try {
+            client = getClient();
+            return client.saveEventTypes(tEventTypes);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public int saveChannels(final List<TChannelMeta> tChannels)
+            throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+
+        try {
+            client = getClient();
+            return client.saveChannels(tChannels);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public int saveCountries(final List<TCountryMeta> tCountries)
+            throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+
+        try {
+            client = getClient();
+            return client.saveCountries(tCountries);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public int saveOS(final List<TOSMeta> tOSMetas) throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+
+        try {
+            client = getClient();
+            return client.saveOS(tOSMetas);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
     public List<TPropositionMeta> getListOfProposition() throws TInternalServerException, TException {
         THeartbeatService.Client client = null;
 

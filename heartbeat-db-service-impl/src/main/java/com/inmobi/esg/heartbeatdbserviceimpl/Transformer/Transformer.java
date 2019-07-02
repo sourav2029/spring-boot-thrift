@@ -52,9 +52,58 @@ public class Transformer {
 
 
     public static TAdvertiser getTAdvertiser(final Advertiser advertiser) {
-        return new TAdvertiser().setId(advertiser.getAdvertiserId()).setAccountId(advertiser.getAccountId()).setAccountMailId(
-                advertiser.getEmailId()).setAccountName(advertiser.getAccountName()).setPod(advertiser.getPod())
-                .setSubPod(advertiser.getSubPod()).setRoo(advertiser.getRoo()).setSubRoo(advertiser.getSubRoo())
-                .setModifiedBy(advertiser.getModifiedBy());
+        return new TAdvertiser().setId(advertiser.getAdvertiserId()).setAccountId(advertiser.getAccountId())
+                .setAccountMailId(advertiser.getEmailId()).setAccountName(advertiser.getAccountName()).setPod(
+                        advertiser.getPod()).setSubPod(advertiser.getSubPod()).setRoo(advertiser.getRoo()).setSubRoo(
+                        advertiser.getSubRoo()).setModifiedBy(advertiser.getModifiedBy());
+    }
+
+
+    public static PropositionMeta getPropositionMeta(final TPropositionMeta tPropositionMeta) {
+        final TCodeNameMetaInfo tCodeNameMetaInfo = tPropositionMeta.getMeta();
+        final PropositionMeta propositionMeta = new PropositionMeta();
+        propositionMeta.setPropositionId(tPropositionMeta.getPropositionId());
+        propositionMeta.setCode(tCodeNameMetaInfo.getCode());
+        propositionMeta.setName(tCodeNameMetaInfo.getName());
+        return propositionMeta;
+    }
+
+
+    public static OsMeta getOSMeta(final TOSMeta tosMeta) {
+        final TCodeNameMetaInfo tCodeNameMetaInfo = tosMeta.getMeta();
+        final OsMeta osMeta = new OsMeta();
+        osMeta.setOsId(tosMeta.getOsId());
+        osMeta.setCode(tCodeNameMetaInfo.getCode());
+        osMeta.setName(tCodeNameMetaInfo.getName());
+        return osMeta;
+    }
+
+
+    public static ChannelMeta getChannelMeta(final TChannelMeta tChannelMeta) {
+        final TCodeNameMetaInfo tCodeNameMetaInfo = tChannelMeta.getMeta();
+        final ChannelMeta channelMeta = new ChannelMeta();
+        channelMeta.setChannelId(tChannelMeta.getChannelId());
+        channelMeta.setCode(tCodeNameMetaInfo.getCode());
+        channelMeta.setName(tCodeNameMetaInfo.getName());
+        return channelMeta;
+    }
+
+
+    public static EventTypeMeta getEventTypeMeta(final TEventTypeMeta tEventTypeMeta) {
+        final TCodeNameMetaInfo tCodeNameMetaInfo = tEventTypeMeta.getMeta();
+        final EventTypeMeta eventTypeMeta = new EventTypeMeta();
+        eventTypeMeta.setEventTypeId(tEventTypeMeta.getEventTypeId());
+        eventTypeMeta.setCode(tCodeNameMetaInfo.getCode());
+        eventTypeMeta.setName(tCodeNameMetaInfo.getName());
+        return eventTypeMeta;
+    }
+
+    public static CountryMeta getCountryMeta(final TCountryMeta tCountryMeta) {
+        final TCodeNameMetaInfo tCodeNameMetaInfo = tCountryMeta.getMeta();
+        final CountryMeta countryMeta = new CountryMeta();
+        countryMeta.setCountryId(tCountryMeta.getCountryId());
+        countryMeta.setCode(tCodeNameMetaInfo.getCode());
+        countryMeta.setName(tCodeNameMetaInfo.getName());
+        return countryMeta;
     }
 }

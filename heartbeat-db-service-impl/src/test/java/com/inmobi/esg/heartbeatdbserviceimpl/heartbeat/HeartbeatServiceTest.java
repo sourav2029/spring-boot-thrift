@@ -2,7 +2,11 @@ package com.inmobi.esg.heartbeatdbserviceimpl.heartbeat;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 import org.apache.thrift.protocol.TProtocolFactory;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +15,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.inmobi.esg.heartbeatdbservice.HeartbeatServiceClient;
+import com.inmobi.esg.heartbeatdbserviceimpl.repository.ChannelMetaRepository;
+import com.inmobi.esg.heartbeatservice.entities.TCodeNameMetaInfo;
+import com.inmobi.esg.heartbeatservice.entities.TCountryMeta;
 
 
 @RunWith(SpringRunner.class)
@@ -18,6 +25,9 @@ import com.inmobi.esg.heartbeatdbservice.HeartbeatServiceClient;
 public class HeartbeatServiceTest {
     @Autowired
     protected TProtocolFactory protocolFactory;
+
+    @Autowired
+    private ChannelMetaRepository channelMetaRepository;
 
     private HeartbeatServiceClient client;
 
@@ -55,5 +65,16 @@ public class HeartbeatServiceTest {
     @Test
     public void testAdvertiserByAdvertiserId() throws Exception {
         System.out.println(client.getAdvertiserByAdvertiserId(1));
+    }
+
+    @Test
+    public void testsaveCountries() throws Exception {
+        TCountryMeta tCountryMeta = new TCountryMeta();
+        tCountryMeta.setCountryId(40);
+        TCodeNameMetaInfo tCodeNameMetaInfo = new TCodeNameMetaInfo();
+        tCodeNameMetaInfo.setCode("BAN");
+        tCodeNameMetaInfo.setName("BANGLADESH");
+        tCountryMeta.setMeta(tCodeNameMetaInfo);
+        Assert.assertTrue(client.saveCountries(Collections.singletonList(tCountryMeta)) == 1);
     }
 }
