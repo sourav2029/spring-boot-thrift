@@ -1,8 +1,7 @@
 include "entities.thrift"
 include "exceptions.thrift"
 
-namespace java com.inmobi.thriftself.thrift.models
-namespace py thriftself_thrift_models
+namespace java com.inmobi.esg.heartbeatdbservice.thrift.models
 
 typedef i32 int
 

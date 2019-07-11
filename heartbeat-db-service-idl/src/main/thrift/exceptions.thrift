@@ -1,4 +1,4 @@
-namespace java com.inmobi.esg.heartbeatdbservice.thrift
+namespace java com.inmobi.esg.heartbeatdbservice.thrift.exceptions
 namespace py com_inmobi_programmatics_cs.expression.exception
 
 exception TInternalServerException {

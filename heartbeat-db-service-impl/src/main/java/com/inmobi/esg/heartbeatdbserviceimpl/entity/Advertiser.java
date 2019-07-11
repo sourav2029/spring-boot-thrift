@@ -13,7 +13,7 @@ import lombok.Data;
 
 
 @Entity
-@Table(name = "advertiser")
+@Table(name = "sf_advertiser")
 @Data
 public class Advertiser {
 
@@ -26,9 +26,6 @@ public class Advertiser {
 
     @Column(name = "account_name", columnDefinition = "character varying(255)")
     private String accountName;
-
-    @Column(name = "account_mail_id", columnDefinition = "character varying(255)")
-    private String emailId;
 
     @Column(name = "roo")
     private String roo;
@@ -43,10 +40,10 @@ public class Advertiser {
     private String subPod;
 
     @CreationTimestamp
-    @Column(name = "created_at", columnDefinition = "TIMESTAMP WITHOUT TIME ZONE DEFAULT now() NOT NULL")
+    @Column(name = "created_on", columnDefinition = "TIMESTAMP WITHOUT TIME ZONE DEFAULT now() NOT NULL")
     private Date createdOn;
 
-    @Column(name = "modified_at", columnDefinition = "TIMESTAMP WITHOUT TIME ZONE DEFAULT now() NOT NULL")
+    @Column(name = "modified_on", columnDefinition = "TIMESTAMP WITHOUT TIME ZONE DEFAULT now() NOT NULL")
     private Date modifiedOn;
 
     @Column(name = "modified_by")

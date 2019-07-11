@@ -7,7 +7,8 @@ import org.apache.thrift.TException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.inmobi.esg.heartbeatdbservice.thrift.TInternalServerException;
+import com.inmobi.esg.heartbeatdbservice.thrift.exceptions.TInternalServerException;
+import com.inmobi.esg.heartbeatdbservice.thrift.models.THeartbeatService;
 import com.inmobi.esg.heartbeatdbserviceimpl.Transformer.Transformer;
 import com.inmobi.esg.heartbeatdbserviceimpl.entity.EventTypeMeta;
 import com.inmobi.esg.heartbeatdbserviceimpl.entity.PropositionMeta;
@@ -17,17 +18,16 @@ import com.inmobi.esg.heartbeatdbserviceimpl.repository.CountryMetaRepository;
 import com.inmobi.esg.heartbeatdbserviceimpl.repository.EventTypeMetaRepository;
 import com.inmobi.esg.heartbeatdbserviceimpl.repository.OSMetaRepository;
 import com.inmobi.esg.heartbeatdbserviceimpl.repository.PropositionMetaRepository;
-import com.inmobi.esg.heartbeatservice.entities.TAdvertiser;
-import com.inmobi.esg.heartbeatservice.entities.TCampaignReportsForBilling;
-import com.inmobi.esg.heartbeatservice.entities.TCampaignTransactions;
-import com.inmobi.esg.heartbeatservice.entities.TChannelMeta;
-import com.inmobi.esg.heartbeatservice.entities.TCountryMeta;
-import com.inmobi.esg.heartbeatservice.entities.TEventTypeMeta;
-import com.inmobi.esg.heartbeatservice.entities.TOSMeta;
-import com.inmobi.esg.heartbeatservice.entities.TPropositionMeta;
-import com.inmobi.esg.heartbeatservice.entities.TRateCardAndIoForCampaign;
-import com.inmobi.esg.heartbeatservice.entities.TReportStatus;
-import com.inmobi.thriftself.thrift.models.THeartbeatService;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TAdvertiser;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TCampaignReportsForBilling;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TCampaignTransactions;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TChannelMeta;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TCountryMeta;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TEventTypeMeta;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TOSMeta;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TPropositionMeta;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TRateCardAndIoForCampaign;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TReportStatus;
 
 import lombok.RequiredArgsConstructor;
 

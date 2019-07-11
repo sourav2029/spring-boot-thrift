@@ -6,13 +6,13 @@ import com.inmobi.esg.heartbeatdbserviceimpl.entity.CountryMeta;
 import com.inmobi.esg.heartbeatdbserviceimpl.entity.EventTypeMeta;
 import com.inmobi.esg.heartbeatdbserviceimpl.entity.OsMeta;
 import com.inmobi.esg.heartbeatdbserviceimpl.entity.PropositionMeta;
-import com.inmobi.esg.heartbeatservice.entities.TAdvertiser;
-import com.inmobi.esg.heartbeatservice.entities.TChannelMeta;
-import com.inmobi.esg.heartbeatservice.entities.TCodeNameMetaInfo;
-import com.inmobi.esg.heartbeatservice.entities.TCountryMeta;
-import com.inmobi.esg.heartbeatservice.entities.TEventTypeMeta;
-import com.inmobi.esg.heartbeatservice.entities.TOSMeta;
-import com.inmobi.esg.heartbeatservice.entities.TPropositionMeta;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TAdvertiser;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TChannelMeta;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TCodeNameMetaInfo;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TCountryMeta;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TEventTypeMeta;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TOSMeta;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TPropositionMeta;
 
 
 public class Transformer {
@@ -53,7 +53,7 @@ public class Transformer {
 
     public static TAdvertiser getTAdvertiser(final Advertiser advertiser) {
         return new TAdvertiser().setId(advertiser.getAdvertiserId()).setAccountId(advertiser.getAccountId())
-                .setAccountMailId(advertiser.getEmailId()).setAccountName(advertiser.getAccountName()).setPod(
+                .setAccountName(advertiser.getAccountName()).setPod(
                         advertiser.getPod()).setSubPod(advertiser.getSubPod()).setRoo(advertiser.getRoo()).setSubRoo(
                         advertiser.getSubRoo()).setModifiedBy(advertiser.getModifiedBy());
     }

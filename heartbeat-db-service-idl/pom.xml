@@ -2,17 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>com.inmobi.esg</groupId>
         <artifactId>heartbeat-db-service</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.inmobi.esg</groupId>
     <artifactId>heartbeat-db-service-idl</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-
     <build>
         <plugins>
             <plugin>
@@ -21,10 +19,16 @@
                 <version>0.1.14</version>
                 <executions>
                     <execution>
+                        <!--<id>thrift-sources</id>-->
+                        <!--<phase>generate-sources</phase>-->
+                        <!--<configuration>-->
+                            <!--<thriftExecutable>/usr/local/opt/thrift@0.9/bin/thrift</thriftExecutable>-->
+                            <!--<generator>java</generator>-->
+                        <!--</configuration>-->
                         <id>thrift-sources</id>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <thriftExecutable>/usr/local/opt/thrift@0.9/bin/thrift</thriftExecutable>
+                            <thriftExecutable>/usr/local/bin/thrift-0.8</thriftExecutable>
                             <generator>java</generator>
                         </configuration>
                         <goals>

@@ -1,8 +1,5 @@
 package com.inmobi.esg.heartbeatdbserviceimpl.heartbeat;
 
-import static org.junit.Assert.assertEquals;
-
-import java.util.Arrays;
 import java.util.Collections;
 
 import org.apache.thrift.protocol.TProtocolFactory;
@@ -16,8 +13,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.inmobi.esg.heartbeatdbservice.HeartbeatServiceClient;
 import com.inmobi.esg.heartbeatdbserviceimpl.repository.ChannelMetaRepository;
-import com.inmobi.esg.heartbeatservice.entities.TCodeNameMetaInfo;
-import com.inmobi.esg.heartbeatservice.entities.TCountryMeta;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TCodeNameMetaInfo;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TCountryMeta;
 
 
 @RunWith(SpringRunner.class)

@@ -1,0 +1,14 @@
+server.port=${IDP_CONTAINER_PORT_0}
+server.servlet.context-path=/
+
+
+# SQL Server Properties
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+#spring.jpa.hibernate.ddl-auto=none
+spring.jpa.hibernate.show-sql=true
+spring.datasource.url=jdbc:postgresql://{{heartbeat_db_host}}:{{heartbeat_db_port}}/{{heartbeat_db_database}}
+spring.datasource.username={{heartbeat_db_username}}
+spring.datasource.password={{heartbeat_db_password}}
+
+#spring.datasource.initialization-mode=always
+#spring.datasource.continue-on-error=true

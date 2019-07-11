@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 
+import com.inmobi.esg.heartbeatdbservice.thrift.models.THeartbeatService;
 import com.inmobi.esg.heartbeatdbserviceimpl.handler.HeartbeatServiceHandler;
-import com.inmobi.thriftself.thrift.models.THeartbeatService;
 
 
 @SpringBootApplication

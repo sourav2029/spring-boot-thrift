@@ -1,4 +1,4 @@
-namespace java com.inmobi.esg.heartbeatservice.entities
+namespace java com.inmobi.esg.heartbeatdbservice.thrift.entities
 
 typedef i32 int
 
@@ -114,14 +114,13 @@ struct TAdvertiser {
     1: int id,
     2: string accountId,
     3: string accountName,
-    4: string accountMailId,
-    5: string roo,
-    6: string subRoo,
-    7: string pod,
-    8: string subPod,
-    9: string createdOn,
-    11: string modifiedOn,
-    12: string modifiedBy
+    4: string roo,
+    5: string subRoo,
+    6: string pod,
+    7: string subPod,
+    8: string createdOn,
+    9: string modifiedOn,
+    10: string modifiedBy
 }
 
 struct TIoDetails {
