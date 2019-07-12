@@ -1,4 +1,4 @@
-package com.inmobi.esg.heartbeatdbservice;
+package com.inmobi.esg.heartbeatdbservice.client;
 
 import java.util.List;
 
