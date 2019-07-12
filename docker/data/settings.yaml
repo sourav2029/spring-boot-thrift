@@ -1,0 +1,26 @@
+prod:
+  dfw1:
+    heartbeat_db_host: "localhost"
+    heartbeat_db_port: 5432
+    heartbeat_db_database: "heartbeat"
+    heartbeat_db_username: "hbuser"
+    heartbeat_db_password: "heartbeat"
+
+#change the non_prod db details to point to your local db.
+#currently it points to azure db in non_prod subscription
+
+non_prod:
+#for azure esg-nonprod
+#  corp:
+#    heartbeat_db_host: "esg-heartbeat-db-server.postgres.database.azure.com"
+#    heartbeat_db_port: 5432
+#    heartbeat_db_database: "heartbeat"
+#    heartbeat_db_username: "heartbeat_user@esg-heartbeat-db-server"
+#    heartbeat_db_password: "heartbeat_user@123"
+# for local system
+  corp:
+      heartbeat_db_host: docker.for.mac.host.internal
+      heartbeat_db_port: 5432
+      heartbeat_db_database: "heartbeat"
+      heartbeat_db_username: "hbuser"
+      heartbeat_db_password: "heartbeat"
