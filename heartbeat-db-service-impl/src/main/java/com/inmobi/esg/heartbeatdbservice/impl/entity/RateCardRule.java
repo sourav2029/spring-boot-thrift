@@ -35,5 +35,5 @@ public class RateCardRule {
     @Column(name = "proposition_id")
     private int propositionId;
 
-    private double value;
+    private Double value;
 }

@@ -1,4 +1,4 @@
-INSERT INTO sf_advertiser VALUES (1, '123', 'TEST',  'NA', 'USA', 'UA', 'UA-sub', now(), now(), 'test', );
+INSERT INTO sf_advertiser VALUES (1, 'account_123', 'account_TEST',  'test@Inmobi.com', 'USA', 'UA', 'UA-sub', now(), now(), 'test', );
 
 
 INSERT INTO meta_channel VALUES (1, 'SPOTAD', 'SPOTAD');
