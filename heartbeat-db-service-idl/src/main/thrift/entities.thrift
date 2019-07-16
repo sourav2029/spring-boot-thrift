@@ -9,6 +9,11 @@ enum TReportStatus {
     RERUN
 }
 
+enum TAdvertiserSearchType{
+   ACCOUNT_ID,
+   ACCOUNT_NAME
+}
+
 struct TCodeNameMetaInfo {
     1: required string code,
     2: required string name
@@ -85,12 +90,11 @@ struct TChannelIoRule {
     5: int propositionId,
     6: int rateCardId,
     7: string createdOn,
-    8: string createdBy,
     9: string modifiedOn,
     10: string modifiedBy
 }
 
-struct TChannelIoRuleToCampaignMapping {
+struct TChannelIoRuleToCampaignDetailsMapping {
     1: int id,
     2: int channelIoRuleId,
     3: int campaignDetailsId,
@@ -102,12 +106,12 @@ struct TChannelIoRuleToCampaignMapping {
 
 struct TCampaignDetails {
     1: int id,
-    2: int campaignId,
-    3: string name,
-    4: string createdOn,
-    5: string createdBy,
-    6: string modifiedOn,
-    7: string modifiedBy
+    2: int channelId,
+    3: string campaignId,
+    4: string name,
+    5: string createdOn,
+    7: string modifiedOn,
+    8: string modifiedBy
 }
 
 struct TAdvertiser {
@@ -125,7 +129,7 @@ struct TAdvertiser {
 
 struct TIoDetails {
     1: int id,
-    2: string advertiserId,
+    2: int advertiserId,
     3: string parentIoId,
     4: string ioId,
     5: double totalBudget,
@@ -138,7 +142,7 @@ struct TIoDetails {
 
 struct TRateCard {
     1: int id,
-    2: int sfadvertiserId,
+    2: int sfAdvertiserId,
     3: string name,
     4: string createdBy,
     5: string createdOn
@@ -152,9 +156,7 @@ struct TRateCardRule {
     5: int billingModelId,
     6: int eventTypeId,
     7: int propositionId,
-    8: double value,
-    9: string createdOn,
-    10: string createdBy
+    8: double value
 }
 
 struct TCampaignReportsForBilling {
@@ -203,4 +205,9 @@ struct TPropositionMeta {
 struct TEventTypeMeta {
     1: required int eventTypeId,
     2: required TCodeNameMetaInfo meta
+}
+
+struct TAdvertiserSearchQuery {
+    1: TAdvertiserSearchType advertiserSearchType;
+    2: string searchValue;
 }

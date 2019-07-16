@@ -8,6 +8,13 @@ import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.transport.THttpClient;
 import org.apache.thrift.transport.TTransportException;
 
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TAdvertiserSearchQuery;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TCampaignDetails;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TChannelIoRule;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TChannelIoRuleToCampaignDetailsMapping;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TIoDetails;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TRateCard;
+import com.inmobi.esg.heartbeatdbservice.thrift.entities.TRateCardRule;
 import com.inmobi.esg.heartbeatdbservice.thrift.exceptions.TInternalServerException;
 import com.inmobi.esg.heartbeatdbservice.thrift.entities.TAdvertiser;
 import com.inmobi.esg.heartbeatdbservice.thrift.entities.TCampaignReportsForBilling;
@@ -80,8 +87,7 @@ public class HeartbeatServiceClient implements THeartbeatService.Iface {
 
 
     @Override
-    public int saveEventTypes(final List<TEventTypeMeta> tEventTypes)
-            throws TInternalServerException, TException {
+    public int saveEventTypes(final List<TEventTypeMeta> tEventTypes) throws TInternalServerException, TException {
         THeartbeatService.Client client = null;
 
         try {
@@ -94,8 +100,7 @@ public class HeartbeatServiceClient implements THeartbeatService.Iface {
 
 
     @Override
-    public int saveChannels(final List<TChannelMeta> tChannels)
-            throws TInternalServerException, TException {
+    public int saveChannels(final List<TChannelMeta> tChannels) throws TInternalServerException, TException {
         THeartbeatService.Client client = null;
 
         try {
@@ -108,8 +113,7 @@ public class HeartbeatServiceClient implements THeartbeatService.Iface {
 
 
     @Override
-    public int saveCountries(final List<TCountryMeta> tCountries)
-            throws TInternalServerException, TException {
+    public int saveCountries(final List<TCountryMeta> tCountries) throws TInternalServerException, TException {
         THeartbeatService.Client client = null;
 
         try {
@@ -280,4 +284,224 @@ public class HeartbeatServiceClient implements THeartbeatService.Iface {
             throws TInternalServerException, TException {
         return null;
     }
+
+
+    @Override
+    public List<TAdvertiser> searchAdvertisers(final TAdvertiserSearchQuery advertiserSearchQuery)
+            throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+
+        try {
+            client = getClient();
+            return client.searchAdvertisers(advertiserSearchQuery);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public List<TRateCard> getRateCardsForAdvertiser(final int advertiserId)
+            throws TException, TInternalServerException {
+        THeartbeatService.Client client = null;
+
+        try {
+            client = getClient();
+            return client.getRateCardsForAdvertiser(advertiserId);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public List<TRateCardRule> getRateCardRulesForRateCard(final int rateCardId)
+            throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+
+        try {
+            client = getClient();
+            return client.getRateCardRulesForRateCard(rateCardId);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public List<TIoDetails> getIODetailsForAdvertiser(final int advertiserId)
+            throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+
+        try {
+            client = getClient();
+            return client.getIODetailsForAdvertiser(advertiserId);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public List<TChannelIoRule> getChannelIORulesForIODetails(final List<Integer> listOfIoDetailsId)
+            throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+        try {
+            client = getClient();
+            return client.getChannelIORulesForIODetails(listOfIoDetailsId);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public TIoDetails getIODetailsById(final int ioDetailsId) throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+        try {
+            client = getClient();
+            return client.getIODetailsById(ioDetailsId);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public TChannelIoRule getChannelIORuleById(final int channelIORuleId) throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+        try {
+            client = getClient();
+            return client.getChannelIORuleById(channelIORuleId);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public TRateCard getRateCardById(final int rateCardId) throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+        try {
+            client = getClient();
+            return client.getRateCardById(rateCardId);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public TRateCardRule getRateCardRuleById(final int rateCardRuleId) throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+        try {
+            client = getClient();
+            return client.getRateCardRuleById(rateCardRuleId);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public TIoDetails getIODetailsByIoId(final String ioDetailsId) throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+        try {
+            client = getClient();
+            return client.getIODetailsByIoId(ioDetailsId);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public TCampaignDetails getCampaignDetailsById(final int campaignDetailsId)
+            throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+        try {
+            client = getClient();
+            return client.getCampaignDetailsById(campaignDetailsId);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public TChannelIoRuleToCampaignDetailsMapping getChannelIoRuleToCampaignDetailsMappingById(final int mappingId)
+            throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+        try {
+            client = getClient();
+            return client.getChannelIoRuleToCampaignDetailsMappingById(mappingId);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public List<TChannelIoRule> saveOrUpdateChannelIoRules(final List<TChannelIoRule> tChannelIoRules)
+            throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+        try {
+            client = getClient();
+            return client.saveOrUpdateChannelIoRules(tChannelIoRules);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public List<TRateCard> saveOrUpdateRateCards(final List<TRateCard> tRateCards)
+            throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+        try {
+            client = getClient();
+            return client.saveOrUpdateRateCards(tRateCards);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public List<TRateCardRule> saveOrUpdateRateCardRules(final List<TRateCardRule> tRateCardRules)
+            throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+        try {
+            client = getClient();
+            return client.saveOrUpdateRateCardRules(tRateCardRules);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public List<TCampaignDetails> saveOrUpdateCampaignDetails(final List<TCampaignDetails> tCampaignDetails)
+            throws TInternalServerException, TException {
+        THeartbeatService.Client client = null;
+        try {
+            client = getClient();
+            return client.saveOrUpdateCampaignDetails(tCampaignDetails);
+        } finally {
+            closeClient(client);
+        }
+    }
+
+
+    @Override
+    public void deleteChannelIORuleToCampaignMapping(final List<Integer> channelIoRuleIds) throws TException,  TInternalServerException {
+        THeartbeatService.Client client = null;
+        try {
+            client = getClient();
+            client.deleteChannelIORuleToCampaignMapping(channelIoRuleIds);
+        } finally {
+            closeClient(client);
+        }
+    }
+
 }

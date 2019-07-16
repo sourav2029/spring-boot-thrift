@@ -1,4 +1,4 @@
-package com.inmobi.esg.heartbeatdbserviceimpl.entity;
+package com.inmobi.esg.heartbeatdbservice.impl.entity;
 
 import java.util.Date;
 

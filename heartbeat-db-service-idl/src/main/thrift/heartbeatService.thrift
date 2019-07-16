@@ -125,4 +125,39 @@ service THeartbeatService {
     * Get all campaign transactions for a date, campaign id
     **/
     list<entities.TCampaignTransactions> getCampaignTransactionsForCampaign(1: required string date, 2: required string campaignId) throws (1: exceptions.TInternalServerException ise),
+
+    list<entities.TAdvertiser> searchAdvertisers(1: required entities.TAdvertiserSearchQuery searchAdvertiserQuery) throws (1: exceptions.TInternalServerException ise),
+
+    list<entities.TRateCard> getRateCardsForAdvertiser(1: int advertiserId) throws (1: exceptions.TInternalServerException ise),
+
+    list<entities.TRateCardRule> getRateCardRulesForRateCard(1: int rateCardId) throws (1: exceptions.TInternalServerException ise),
+
+    list<entities.TIoDetails> getIODetailsForAdvertiser(1: int advertiserId) throws (1: exceptions.TInternalServerException ise),
+
+    list<entities.TChannelIoRule> getChannelIORulesForIODetails(1: list<int> listOfIoDetailsId) throws (1: exceptions.TInternalServerException ise),
+
+    entities.TIoDetails getIODetailsById(1: int ioDetailsId) throws (1: exceptions.TInternalServerException ise),
+
+    entities.TChannelIoRule getChannelIORuleById(1: int channelIORuleId) throws (1: exceptions.TInternalServerException ise),
+
+    entities.TRateCard getRateCardById(1: int rateCardId) throws (1: exceptions.TInternalServerException ise),
+
+    entities.TRateCardRule getRateCardRuleById(1: int rateCardRuleId) throws (1: exceptions.TInternalServerException ise),
+
+    entities.TIoDetails getIODetailsByIoId(1: string ioDetailsId) throws (1: exceptions.TInternalServerException ise),
+
+    entities.TCampaignDetails getCampaignDetailsById(1: int campaignDetailsId) throws (1: exceptions.TInternalServerException ise),
+
+    entities.TChannelIoRuleToCampaignDetailsMapping getChannelIoRuleToCampaignDetailsMappingById(1: int mappingId) throws (1: exceptions.TInternalServerException ise),
+
+    list<entities.TChannelIoRule> saveOrUpdateChannelIoRules(1: list<entities.TChannelIoRule> tChannelIoRules) throws (1: exceptions.TInternalServerException ise),
+
+    list<entities.TRateCard> saveOrUpdateRateCards(1: list<entities.TRateCard> tRateCards) throws(1: exceptions.TInternalServerException ise),
+
+    list<entities.TRateCardRule> saveOrUpdateRateCardRules(1: list<entities.TRateCardRule> tRateCardRules) throws(1: exceptions.TInternalServerException ise),
+
+    list<entities.TCampaignDetails> saveOrUpdateCampaignDetails(1: list<entities.TCampaignDetails> tCampaignDetails) throws(1: exceptions.TInternalServerException ise),
+
+    void deleteChannelIORuleToCampaignMapping(1: list<int> channelIoRuleIds) throws (1: exceptions.TInternalServerException ise),
+
 }

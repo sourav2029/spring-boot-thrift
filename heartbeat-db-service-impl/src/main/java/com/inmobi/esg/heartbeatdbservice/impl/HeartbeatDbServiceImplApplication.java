@@ -1,4 +1,4 @@
-package com.inmobi.esg.heartbeatdbserviceimpl;
+package com.inmobi.esg.heartbeatdbservice.impl;
 
 import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.protocol.TProtocolFactory;
@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 
+import com.inmobi.esg.heartbeatdbservice.impl.handler.HeartbeatServiceHandler;
 import com.inmobi.esg.heartbeatdbservice.thrift.models.THeartbeatService;
-import com.inmobi.esg.heartbeatdbserviceimpl.handler.HeartbeatServiceHandler;
 
 
 @SpringBootApplication

@@ -284,7 +284,8 @@ CREATE TABLE channel_report_status (
   id SERIAL PRIMARY KEY,
   channel_id integer not null REFERENCES meta_channel(channel_id),
   report_date TIMESTAMP NOT NULL,
-  status report_status
+  status report_status,
+  channel_report_id VARCHAR(64)
 );
 
 
